@@ -1,0 +1,13 @@
+mat-slider{
+    width: 100%;
+}
+
+mat-form-field{
+    width: 100%;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+mat-slide-toggle{
+    padding-bottom: 20px;
+}

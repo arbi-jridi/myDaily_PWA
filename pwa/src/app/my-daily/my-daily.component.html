@@ -1,0 +1,114 @@
+<mat-card style="background-color: azure;padding-top: 30px;gap: 30px;"  fxFlex="50%">
+
+    <mat-card-header>
+      <mat-card-title>
+        Basic Information
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field >
+        <mat-label>Day</mat-label>
+        <mat-select name="day" [(ngModel)]="daily.day">
+            <mat-option *ngFor="let day of days" [value]="day">
+              {{ day }}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date and Time</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="daily.dateTime">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>It is:</mat-label>
+        <mat-select name="type" [(ngModel)]="daily.type">
+          <mat-option *ngFor="let type of types" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Place Name</mat-label>
+        <input matInput name="place" [(ngModel)]="daily.place">
+      </mat-form-field>
+      
+      <mat-form-field >
+        <mat-label>Address</mat-label>
+        <input matInput name="address" [(ngModel)]="daily.location!.address">
+      </mat-form-field>
+      
+      <mat-form-field >
+        <mat-label>City</mat-label>
+        <input matInput name="city" [(ngModel)]="daily.location!.city">
+      </mat-form-field>
+      
+      <section style="padding: 20px;">
+        <button mat-fab extended (click)="getLocation()" >
+            <mat-icon>location_on</mat-icon>Get Location</button>
+      </section>
+
+      <mat-divider></mat-divider>
+      <mat-card-title>Rating</mat-card-title>
+
+      <mat-form-field style="justify-items: center;">
+        <mat-card-title>Overall Rating</mat-card-title>
+        <mat-slider max="10" step="1" discrete>
+          <input matInput name="rating" matSliderThumb [(ngModel)]="daily.routine!.overall">
+        </mat-slider>
+      </mat-form-field>
+      
+       <mat-slide-toggle #dailySelector [checked]="!!ratingEnabled"
+          (change)="dailyRatingChanged(dailySelector.checked)">Daily Ratings</mat-slide-toggle> 
+      
+      <section id="tasting" *ngIf="dailySelector.checked" style="gap: 10px;">
+        <label>Education</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="educationRating" matSliderThumb [(ngModel)]="daily.routine!.education">
+        </mat-slider>
+      
+        <label>Family</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="familyRating" matSliderThumb [(ngModel)]="daily.routine!.family">
+        </mat-slider>
+      
+        <label>Playing</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="playingRating" matSliderThumb [(ngModel)]="daily.routine!.playing">
+        </mat-slider>
+      
+        <label>My Prayer</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="prayerRating" matSliderThumb [(ngModel)]="daily.routine!.praying">
+        </mat-slider>
+      
+        <label>Reading</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="readingRating" matSliderThumb [(ngModel)]="daily.routine!.reading">
+        </mat-slider>
+      
+        <label>Sport</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="sportRating" matSliderThumb [(ngModel)]="daily.routine!.sport">
+        </mat-slider>
+
+        <label>Working</label>
+        <mat-slider max="10" discrete step="1">
+          <input matInput name="workRating" matSliderThumb [(ngModel)]="daily.routine!.working">
+        </mat-slider>
+
+      </section>
+      <mat-divider></mat-divider>
+      <mat-form-field >
+        <mat-label>Notes</mat-label>
+        <textarea matInput matInput name="notes" [(ngModel)]="daily.notes">
+      </textarea>
+      </mat-form-field>
+    </mat-card-content>
+  
+    <mat-card-actions style="justify-content: space-between;" >
+      <button mat-raised-button	 color="warn" (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="secondary" (click)="save()">Save</button>
+    </mat-card-actions>
+  
+  </mat-card>
