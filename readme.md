@@ -6,7 +6,7 @@
 [![PWA](https://img.shields.io/badge/PWA-Progressive%20Web%20App-blue)](https://web.dev/progressive-web-apps/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**MyDaily PWA** is a modern Progressive Web App built with Angular to help you track and manage your daily routines. Stay productive, build habits, and monitor your progress — all from your browser or mobile device, even offline!
+**MyDaily PWA** is a Modern Progressive Web App built with Angular to help you track and manage your daily routines. Stay productive, build habits, and monitor your progress — all from your browser or mobile device, even offline!
 
 ---
 
