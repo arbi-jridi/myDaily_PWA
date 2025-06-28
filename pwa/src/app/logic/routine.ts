@@ -1,5 +1,5 @@
 export class Routine {
-    overall:number=0
+    overall: number=0
     reading : number = 0
     playing: number = 0
     working: number = 0

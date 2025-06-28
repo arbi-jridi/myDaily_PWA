@@ -11,3 +11,7 @@ mat-form-field{
 mat-slide-toggle{
     padding-bottom: 20px;
 }
+
+mat-form-field {
+    margin-right: 12px;
+  }

@@ -43,7 +43,7 @@
         <input matInput name="city" [(ngModel)]="daily.location!.city">
       </mat-form-field>
       
-      <section style="padding: 20px;">
+      <section style="padding: 20px;display: flex;justify-content: center;">
         <button mat-fab extended (click)="getLocation()" >
             <mat-icon>location_on</mat-icon>Get Location</button>
       </section>
@@ -51,12 +51,9 @@
       <mat-divider></mat-divider>
       <mat-card-title>Rating</mat-card-title>
 
-      <mat-form-field style="justify-items: center;">
-        <mat-card-title>Overall Rating</mat-card-title>
-        <mat-slider max="10" step="1" discrete>
-          <input matInput name="rating" matSliderThumb [(ngModel)]="daily.routine!.overall">
-        </mat-slider>
-      </mat-form-field>
+  
+
+    
       
        <mat-slide-toggle #dailySelector [checked]="!!ratingEnabled"
           (change)="dailyRatingChanged(dailySelector.checked)">Daily Ratings</mat-slide-toggle> 
@@ -99,6 +96,14 @@
 
       </section>
       <mat-divider></mat-divider>
+      <br>
+      <mat-card-title>Overall Rating</mat-card-title>
+      <mat-radio-group aria-label="How Was your day ?" [(ngModel)]="daily.rating">
+        <mat-radio-button value="1">Good Day 🙂</mat-radio-button>  
+        <mat-radio-button value="2">Bad Day 🙁</mat-radio-button>
+        <mat-radio-button value="3">Neutral Day 😐</mat-radio-button>
+      </mat-radio-group>
+      <br>
       <mat-form-field >
         <mat-label>Notes</mat-label>
         <textarea matInput matInput name="notes" [(ngModel)]="daily.notes">
@@ -107,8 +112,9 @@
     </mat-card-content>
   
     <mat-card-actions style="justify-content: space-between;" >
-      <button mat-raised-button	 color="warn" (click)="cancel()">Cancel</button>
-      <button mat-raised-button color="secondary" (click)="save()">Save</button>
+      <button mat-raised-button	 color="tertiary" (click)="cancel()">Cancel &nbsp;<mat-icon>undo</mat-icon></button>
+      <button mat-raised-button	 color="warn" (click)="delete()" >Delete &nbsp;<mat-icon>delete_forever</mat-icon></button>
+      <button mat-raised-button color="secondary" (click)="save()" style="color: purple;">Save &nbsp;<mat-icon>check_circle</mat-icon></button>
     </mat-card-actions>
   
   </mat-card>
