@@ -1,0 +1,53 @@
+{
+  "id":"/",
+  "name": "My Daily : How your Day was ?",
+  "short_name": "MyDaily",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./?utm_source=pwa",
+  "description": "This is the best app to Track your Daily Routines !",
+  "screenshots": [
+    {
+      "src": "assets/screenshot.png",
+      "sizes": "1080x2339",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Daily",
+      "short_name": "New Daily",
+      "description": "Create a new Daily Routine",
+      "url": "/daily",
+      "icons": [    
+        {
+          "src": "assets/icons/icon.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "assets/icons/maskable_icon.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        }        
+      ]
+    }
+  ],
+
+  "icons": [
+    {
+      "src": "assets/icons/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/maskable_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

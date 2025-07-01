@@ -1,5 +1,5 @@
 {
-  "name": "pwa",
+  "name": "MyDaily",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "@angular/service-worker": "^17.0.0",
     "@angular/ssr": "^17.0.9",
     "express": "^4.18.2",
     "material-icons": "^1.13.12",

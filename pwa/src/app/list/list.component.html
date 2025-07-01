@@ -5,8 +5,8 @@
 <mat-card-title style="font-size: medium;">{{ item.place  }}</mat-card-title>
   </mat-card-header>
   <mat-card-actions color="primary" style="gap:20px;">
-    <button mat-fab extended ><mat-icon>map</mat-icon>Map</button>
-    <button mat-fab extended ><mat-icon>share</mat-icon>share</button>
+    <button mat-fab extended (click)="goMap(item)"><mat-icon>map</mat-icon>Map</button>
+    <button [disabled]="disabled" mat-fab extended (click)="share(item)"><mat-icon>share</mat-icon>share</button>
     <button mat-fab extended (mouseover)="hover=true" (mouseleave)="hover=false" (click)="seeDetails(item)" #daily>
       <mat-icon [style.transform]="hover ? 'translateX(5px)' : 'translateX(0)'" [style.transition]="'transform 0.2s ease-in-out'">arrow_forward</mat-icon>Details
     </button>
