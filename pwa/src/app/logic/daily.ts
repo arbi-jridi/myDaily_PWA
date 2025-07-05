@@ -5,7 +5,9 @@ import { Routine } from './routine';
 type Day = days["name"];
 type Type = 'work' | 'holiday' ;
 export class Daily {
+    machineId!: string;
     dateTime!: Date;
+    time!: Date;
     type : Type= "work";
     rating:number =0;
     notes: string="";

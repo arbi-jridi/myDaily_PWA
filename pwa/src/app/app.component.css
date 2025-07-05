@@ -2,3 +2,13 @@ mat-toolbar {
     user-select: none;
     -webkit-user-select: none;
 }
+
+ .mdc-snackbar__surface .mat-mdc-snack-bar-container {
+    background-color: var(--snackbar-bg) !important;
+    color: #fff !important;
+  }
+
+  .mdc-snackbar__surface .mat-mdc-snack-bar-container {
+    background-color: rgb(11, 243, 11) !important;
+    color: #fff !important;
+  }

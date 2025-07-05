@@ -1,10 +1,26 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "navigationRequestStrategy": "performance",
+  "dataGroups": [
+    {
+      "name": "api",
+      "urls": [
+        "https://mydaily-pwa.onrender.com/*"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "2s",
+        "maxAge": "2d",
+        "maxSize": 50
+      }
+    }
+  ],
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
+      "updateMode": "prefetch",
       "resources": {
         "files": [
           "/favicon.ico",

@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { GeolocationService } from '../services/geolocation.service';
 import { UiService } from '../services/ui.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -25,14 +26,22 @@ export class ListComponent {
 
 hover:boolean = false;
 list:Daily[] = [];
+filteredList:Daily[] = [];
 disabled= false;
+machineId:string = localStorage.getItem('MachineId')!;
 
-constructor(public Data: DataService , private router:Router, private geolocation : GeolocationService,private ui: UiService){}
+constructor(public Data: DataService , private router:Router, private geolocation : GeolocationService,private ui: UiService , private snackBar: MatSnackBar){}
 
 ngOnInit(){
-  this.Data.getList((data:any) => {this.list = data})
+  this.Data.getList((data:any) => {
+    this.list = data
+    this.filteredList = this.list.filter((item:Daily) => item.machineId == this.machineId);
+    console.log(this.filteredList);
+
+  })
+
   this.ui.setTitle("My Daily !");
-  this.ui.setThemeColor("orange");
+  this.ui.setThemeColor("#B2D6FD");
 }
 
 seeDetails(daily:Daily){
@@ -57,8 +66,11 @@ share(daily:Daily){
   navigator.share(info)
   }
   else {
-    alert('this.navigator dont support sharing');
-     this.disabled =true
+this.snackBar.open("This Navigator dont support sharing !", "", {
+  duration: 3000,
+  verticalPosition: 'top',
+  horizontalPosition: 'center',
+});
   }
   }
 

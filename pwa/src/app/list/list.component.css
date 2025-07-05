@@ -6,5 +6,47 @@
 .addButton{
   position: fixed;
   right: 30px;
-  bottom: 30px;
+  bottom: -80%;
 }
+
+.hero {
+  background: #424FB1;
+   width: 100%;
+   height: 200px;
+ }
+ 
+   .card {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    justify-tracks: center;
+     margin: 0 auto;
+     padding: 16px;
+     width: 80%;
+     height: 100%;
+     margin-top: -100px;
+     backdrop-filter: blur(16px);
+     -webkit-backdrop-filter: blur(16px);
+     background: rgba(255, 255, 255, 0.2);
+     border-radius: 28px;
+     text-align: center;
+   }
+ 
+ .card-content {
+  color: #424FB1;
+   background: white;
+   border-radius: 16px;
+   min-height: 250px;
+   position: relative;
+   z-index: 0;
+   padding: 24px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+ 
+ }
+ 
+ 

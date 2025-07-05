@@ -1,2 +1,5 @@
-<mat-toolbar color="primary" routerLink='/' style="cursor: pointer;">My Daily &nbsp;<mat-icon>history</mat-icon></mat-toolbar>
+<mat-toolbar color="primary" routerLink='/' style="cursor: pointer;">My Daily &nbsp;<mat-icon>history</mat-icon>
+<div style="flex:1 1 auto;"></div>
+<button mat-fab  color="primary" (click)="registerForPush()" style="border: 1px solid rgb(196, 116, 241);"><mat-icon>notifications</mat-icon></button>
+</mat-toolbar>
 <router-outlet></router-outlet>

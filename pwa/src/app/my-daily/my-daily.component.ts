@@ -18,7 +18,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-import {Component, inject} from '@angular/core';
+import {Component, inject,ChangeDetectionStrategy} from '@angular/core';
+/* import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker'; */
+import{SafePipe} from '../pipe/safe.pipe';
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
+
 import {
   MatSnackBar,
   MatSnackBarAction,
@@ -27,15 +31,13 @@ import {
   MatSnackBarModule,
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
-
-
-
-
 import { FormsModule, } from '@angular/forms';
 import { types } from 'util';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Routine } from '../logic/routine';
 import { HttpClientModule } from '@angular/common/http';
+import {NativeDateAdapter} from '@angular/material/core';
+
 
 
 
@@ -59,13 +61,18 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    NgxMatTimepickerModule,
+/*     NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule, */
+    SafePipe
   ],
   templateUrl: './my-daily.component.html',
-  styleUrl: './my-daily.component.css'
+  styleUrl: './my-daily.component.css',   
+  providers: [NativeDateAdapter]
 })
 export class MyDailyComponent {
-
+  showSpinners=true;
 
   days: days['name'][] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   types=["work","holiday"];
@@ -75,10 +82,13 @@ export class MyDailyComponent {
   checked: Boolean =false;
   formtype:  "editing" |"inserting" = "inserting";
   id:any
+  showMap: boolean = false;
+  defaultValue:any;
 
-  constructor(public Data: DataService , private router:Router,private Geolocation :GeolocationService,private _snackBar: MatSnackBar, private route :ActivatedRoute){}
+  constructor(public Data: DataService , private router:Router,private Geolocation :GeolocationService,private _snackBar: MatSnackBar, private route :ActivatedRoute ){}
 
   ngOnInit() {
+    this.daily.machineId = localStorage.getItem('MachineId')!;
     this.route.params.subscribe(params => {
       if(params['id']){
         this.id=params['id']
@@ -156,6 +166,10 @@ export class MyDailyComponent {
     if (checked) {
       this.daily.routine= new Routine()
     }
+    }
+
+    showTheMap(){
+      this.showMap=!this.showMap;
     }
 
 

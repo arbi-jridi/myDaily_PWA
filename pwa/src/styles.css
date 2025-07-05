@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+.snackbar-success {
+    background-color: #4caf50 !important;
+    color: #fff !important;
+}
+
+.snackbar-error {
+    background-color: #f44336  !important;
+    color: #fff !important;
+}
+
+
+  
+  .mdc-snackbar__surface .mat-mdc-snack-bar-container {
+    background-color: var(--snackbar-bg) !important;
+    color: #fff !important;
+  }
+
+  .mdc-snackbar__surface .mat-mdc-snack-bar-container {
+    background-color: rgb(11, 243, 11) !important;
+    color: #fff !important;
+  }

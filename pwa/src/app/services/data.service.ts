@@ -9,7 +9,7 @@ import { PlaceLocation } from '../logic/placeLocation';
 export class DataService {
 
   constructor(private http:HttpClient) { }
-  public apiUrl = 'http://localhost:3000';
+  public apiUrl = 'https://mydaily-pwa.onrender.com';
   public dailyEntity = '/daily';
 
   getList(callback:Function) {
