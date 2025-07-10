@@ -49,4 +49,16 @@
  
  }
  
+ @media (max-width: 380px) {
+  mat-card-actions{
+    width: 100%;
+ justify-content: space-between;
+
+  }
+}
  
+
+
+button:hover{
+  background-color: #424FB1 !important;
+}

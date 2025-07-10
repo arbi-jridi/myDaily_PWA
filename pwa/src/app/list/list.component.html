@@ -17,11 +17,11 @@
 <mat-card-title style="color:rgb(192, 7, 192);">My Daily ({{ i+1 }})</mat-card-title>
 <mat-card-title style="font-size: medium;">{{ item.place  }}&nbsp;|&nbsp;{{ item.day  }}&nbsp;|&nbsp;{{ item.dateTime | date: 'dd/MM/yyyy' }}</mat-card-title>
   </mat-card-header>
-  <mat-card-actions color="primary" style="gap:20px;">
-    <button mat-fab extended (click)="goMap(item)"><mat-icon>map</mat-icon>Map</button>
-    <button [disabled]="disabled" mat-fab extended (click)="share(item)"><mat-icon>share</mat-icon>share</button>
-    <button mat-fab extended (mouseover)="hover=true" (mouseleave)="hover=false" (click)="seeDetails(item)" #daily>
-      <mat-icon [style.transform]="hover ? 'translateX(5px)' : 'translateX(0)'" [style.transition]="'transform 0.2s ease-in-out'">arrow_forward</mat-icon>Details
+  <mat-card-actions color="primary" style="gap:10px; display: flex;">
+    <button mat-fab [extended]="isWide" title="map" (click)="goMap(item)"><mat-icon>map</mat-icon> <span *ngIf="isWide"  alt="map">Map</span></button>
+    <button [disabled]="disabled" mat-fab [extended]="isWide" title="share" (click)="share(item)"><mat-icon>share</mat-icon> <span *ngIf ="isWide" alt="share">Share</span></button>
+    <button mat-fab [extended]="isWide" title="details" (mouseover)="hover=true" (mouseleave)="hover=false" (click)="seeDetails(item)" #daily>
+      <mat-icon  >info</mat-icon> <span *ngIf="isWide" alt="details">Details</span>
     </button>
   </mat-card-actions>
   <hr>

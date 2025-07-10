@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.10.0",
     "cors": "^2.8.5",
     "express-nedb-rest": "^1.4.1",
     "nodemon": "^3.1.10",

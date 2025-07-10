@@ -32,11 +32,11 @@ export class AppComponent {
     if(navigator.onLine){
       (document.querySelector('body') as any).style.filter="grayscale(0)";
       this.setSnackbarColor("green");
-      this.snackBar.open("You are online 📶, you can save your daily !", "", { duration: 3000 , panelClass: ['snackbar-success'] } )
+      this.snackBar.open("You are online 📶,You can save your daily !", "", { duration: 3000 , panelClass: ['snackbar-success'] } )
     }else{
       (document.querySelector('body') as any).style.filter="grayscale(1)";
       this.setSnackbarColor("red");
-      this.snackBar.open("You are offline 🚫, Some features may not work !", "", { duration: 3000 , panelClass: ['snackbar-error'] } )
+      this.snackBar.open("You are offline 🚫,Some features may not work!", "", { duration: 3000 , panelClass: ['snackbar-error'] } )
     }
   }
 
@@ -70,7 +70,7 @@ export class AppComponent {
         window.addEventListener("beforeinstallprompt", event => {
           event.preventDefault();
           const sb = this.snackBar.open("This is a PWA !, You can install this App",
-            "Install", { duration: 5000 , verticalPosition: 'bottom', horizontalPosition: 'center' });
+            "Install", { duration: 10000 , verticalPosition: 'bottom', horizontalPosition: 'center' });
           sb.onAction().subscribe( () => {
              (event as any).prompt();
              (event as any).userChoice.then( (result: any) => {

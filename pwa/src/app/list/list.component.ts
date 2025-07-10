@@ -1,6 +1,6 @@
 import { DataService } from './../services/data.service';
 import { Daily } from './../logic/daily';
-import { Component, } from '@angular/core';
+import { Component, HostListener, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -42,7 +42,17 @@ ngOnInit(){
 
   this.ui.setTitle("My Daily !");
   this.ui.setThemeColor("#B2D6FD");
+  this.onResize();
 }
+
+isWide = true;
+
+
+@HostListener('window:resize')
+onResize() {
+  this.isWide = window.innerWidth > 380;
+}
+
 
 seeDetails(daily:Daily){
 this.router.navigate(['/daily',daily._id])
